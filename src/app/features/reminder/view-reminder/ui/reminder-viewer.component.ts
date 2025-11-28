@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Reminder } from '../../../../entities/reminder/model/reminder.model';
 import { ReminderApi } from '../../../../entities/reminder/api/reminder.api';
 
@@ -17,11 +17,16 @@ export class ReminderViewerComponent implements OnInit {
 
   constructor(
     private readonly reminderApi: ReminderApi,
-    private readonly route: ActivatedRoute
+    private readonly route: ActivatedRoute,
+    private readonly router: Router
   ) {}
 
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id');
+    if (idParam === null || isNaN(Number(idParam))) {
+      this.router.navigate(['/404']);
+      return;
+    }
     this.reminderId = Number(idParam);
     this.loadReminder(this.reminderId);
   }
@@ -32,9 +37,11 @@ export class ReminderViewerComponent implements OnInit {
         this.reminder = data;
       },
       error: (err) => {
-      console.error('Ошибка при загрузке напоминания', err);
-      this.isLoading = false;
-    },
+        console.error('Ошибка при загрузке напоминания', err);
+        this.isLoading = false;
+        this.router.navigate(['/404']);
+        return;
+      },
     });
   }
 }
