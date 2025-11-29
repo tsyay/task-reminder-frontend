@@ -1,0 +1,12 @@
+<p>Изменить напоминание</p>
+
+<p *ngIf="isSaving">Сохраняем...</p>
+<p *ngIf="isLoadingStatuses">Загружаем статусы...</p>
+
+<app-reminder-form
+  *ngIf="!isLoadingStatuses"
+  [initialValue]="reminder"
+  [statuses]="statuses"
+  (submitted)="onSubmit($event)"
+  (cancelled)="onCancel()"
+></app-reminder-form>

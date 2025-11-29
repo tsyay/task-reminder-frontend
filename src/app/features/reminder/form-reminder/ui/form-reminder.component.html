@@ -1,0 +1,44 @@
+<form (ngSubmit)="onSubmit()" class="reminder-form">
+
+  <div class="row">
+    <label>
+      Дата выполнения:
+      <input
+        type="datetime-local"
+        [(ngModel)]="form.dueAt"
+        name="dueAt"
+      />
+    </label>
+
+    <label>
+      Статус:
+      <select [(ngModel)]="form.statusId" name="statusId">
+        <option *ngFor="let s of statuses" [value]="s.id">
+          {{ s.name }}
+        </option>
+      </select>
+    </label>
+  </div>
+
+  <label>
+    Краткое описание:
+    <input
+      [(ngModel)]="form.shortDescription"
+      name="shortDescription"
+    />
+  </label>
+
+  <label>
+    Полное описание:
+    <textarea
+      [(ngModel)]="form.fullDescription"
+      name="fullDescription"
+      rows="6"
+    ></textarea>
+  </label>
+
+  <div class="actions">
+    <button type="submit">Сохранить</button>
+    <button type="button" (click)="onCancel()">Отмена</button>
+  </div>
+</form>
