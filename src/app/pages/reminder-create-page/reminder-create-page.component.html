@@ -1,11 +1,17 @@
-<p>Создать напоминание</p>
+<div class="page">
+  <div class="header mat-elevation-z2">
+    <h1>Создать напоминание</h1>
+  </div>
 
-<p *ngIf="isSaving">Сохраняем...</p>
-<p *ngIf="isLoadingStatuses">Загружаем статусы...</p>
+  <div class="form-wrapper mat-elevation-z4">
+    <p *ngIf="isSaving">Сохраняем...</p>
+    <p *ngIf="isLoadingStatuses">Загружаем статусы...</p>
 
-<app-reminder-form
-  *ngIf="!isLoadingStatuses"
-  [statuses]="statuses"
-  (submitted)="onSubmit($event)"
-  (cancelled)="onCancel()"
-></app-reminder-form>
+    <app-reminder-form
+      *ngIf="!isLoadingStatuses"
+      [statuses]="statuses"
+      (submitted)="onSubmit($event)"
+      (cancelled)="onCancel()"
+    ></app-reminder-form>
+  </div>
+</div>
