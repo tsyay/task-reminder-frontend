@@ -16,10 +16,6 @@ export const routes: Routes = [
   },
   {
     path: 'reminders/:id',
-    component: ReminderViewerComponent,
-  },
-  {
-    path: 'reminders/:id/edit',
     component: ReminderUpdatePageComponent,
   },
   {

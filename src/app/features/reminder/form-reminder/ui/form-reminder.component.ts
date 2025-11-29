@@ -38,6 +38,7 @@ export class ReminderFormComponent {
     shortDescription: '',
     fullDescription: '',
     dueAt: '',
+    createdAt: '',
     statusId: 0,
   };
 
