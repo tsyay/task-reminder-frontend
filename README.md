@@ -39,12 +39,22 @@ src/app/
 
 Структура по FSD:
 
-app/
-  pages/        – страницы и их логика
-  features/     – функциональные, переиспользуемые компоненты
-  entities/     – бизнес-логика, API, DTO, мапперы, модели
-  shared/       – общие компоненты и утилиты
-  app.routes.ts – маршруты
+```text
+src/
+  app/
+    entities/
+      reminder/
+      status/
+    features/
+      reminder/
+    pages/
+      reminders/
+      reminder-view/
+      reminder-create/
+      reminder-update/
+    shared/
+    core/
+```
 
 ---
 
