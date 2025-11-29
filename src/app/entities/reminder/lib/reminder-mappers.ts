@@ -1,12 +1,28 @@
 import { ReminderFormValue } from '../model/reminder-form.model';
 import { Reminder } from '../model/reminder.model';
 
-export function mapReminderToForm(form: Reminder): ReminderFormValue {
+function toInputDateTimeLocal(value: string | null | undefined): string | null {
+  if (!value) return null;
+
+  const date = new Date(value);
+
+  const pad = (n: number) => n.toString().padStart(2, '0');
+
+  const year = date.getFullYear();
+  const month = pad(date.getMonth() + 1);
+  const day = pad(date.getDate());
+  const hours = pad(date.getHours());
+  const minutes = pad(date.getMinutes());
+
+  return `${year}-${month}-${day}T${hours}:${minutes}`;
+}
+
+export function mapReminderToForm(reminder: Reminder): ReminderFormValue {
   return {
-    shortDescription: form.shortDescription,
-    fullDescription: form.fullDescription,
-    dueAt: form.dueAt ? new Date(form.dueAt).toISOString() : null,
-    createdAt: form.createdAt ? new Date(form.createdAt).toISOString() : null,
-    statusId: form.status.id,
+    shortDescription: reminder.shortDescription,
+    fullDescription: reminder.fullDescription,
+    statusId: reminder.status.id,
+    createdAt: toInputDateTimeLocal(reminder.createdAt) ?? '',
+    dueAt: toInputDateTimeLocal(reminder.dueAt),
   };
 }
