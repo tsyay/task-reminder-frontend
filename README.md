@@ -1,27 +1,108 @@
-# TaskReminderFrontend
+# Task Reminder Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3.
+Фронтенд-приложение для управления напоминаниями.
+Позволяет просматривать список задач, создавать новые и редактировать существующие. Работает через REST API и соответствует требованиям тестового задания.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Возможности
 
-## Code scaffolding
+- Вывод списка напоминаний в виде таблицы
+- Создание нового напоминания
+- Редактирование существующего напоминания
+- Переход по маршрутам (список / создание / редактирование)
+- Двойной клик по строке таблицы открывает форму редактирования
+- Все поля доступны для редактирования:
+  - дата и время создания
+  - дата и время выполнения
+  - статус
+  - краткое описание
+  - полное описание
+- Material UI
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## Технологический стек
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Angular 17 (Standalone Components)
+- Angular Material
+- RxJS
+- LESS
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Архитектура
 
-## Running end-to-end tests
+Вся логика находится в:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+src/app/
 
-## Further help
+Структура по FSD:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+app/
+  pages/        – страницы и их логика
+  features/     – функциональные, переиспользуемые компоненты
+  entities/     – бизнес-логика, API, DTO, мапперы, модели
+  shared/       – общие компоненты и утилиты
+  app.routes.ts – маршруты
+
+---
+
+## Запуск
+
+npm install
+ng serve
+
+Открыть в браузере:
+
+http://localhost:4200
+
+---
+
+## Backend
+
+Работает отдельно.
+API по умолчанию доступно по:
+
+http://localhost:3000
+
+---
+
+## Основные маршруты фронтенда
+
+/ reminders         – список напоминаний
+/ reminders/new     – создание
+/ reminders/:id     – редактирование
+
+---
+
+## Соответствие ТЗ
+
+- Таблица на главной странице
+- Вывод нужных колонок: статус, описание, дата создания, дата выполнения
+- Двойной клик по строке – открытие формы через роутинг
+- В форме отображаются все поля по макету
+- Кнопка Назад возвращает к списку
+- Все поля редактируемые
+- Данные берутся с backend API
+
+---
+
+## Стиль и подходы
+
+- Standalone components
+- Feature-Sliced структура
+- API и модели отделены от UI
+- Material для формы и таблицы
+
+---
+
+## Заключение
+
+Проект показывает:
+- владение Angular 17 и standalone компонентами
+- грамотную разбивку кода по слоям
+- работу с REST API
+- соблюдение требований тестового задания
+
+Если вы читаете это README, значит приложение скорее всего работает хаха.
