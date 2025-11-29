@@ -1,44 +1,45 @@
 <form (ngSubmit)="onSubmit()" class="reminder-form">
-
-  <div class="row">
-    <label>
-      Дата выполнения:
+  <div class="form-row">
+    <mat-form-field appearance="outline">
+      <mat-label>Дата выполнения:</mat-label>
       <input
+        matInput
         type="datetime-local"
         [(ngModel)]="form.dueAt"
         name="dueAt"
       />
-    </label>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Статус</mat-label>
 
-    <label>
-      Статус:
-      <select [(ngModel)]="form.statusId" name="statusId">
-        <option *ngFor="let s of statuses" [value]="s.id">
+      <mat-select [(ngModel)]="form.statusId" name="statusId">
+        <mat-option *ngFor="let s of statuses" [value]="s.id">
           {{ s.name }}
-        </option>
-      </select>
-    </label>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
-
-  <label>
-    Краткое описание:
+  <mat-form-field>
+    <mat-label> Краткое описание: </mat-label>
     <input
+      matInput
       [(ngModel)]="form.shortDescription"
       name="shortDescription"
     />
-  </label>
-
-  <label>
-    Полное описание:
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Полное описание: </mat-label>
     <textarea
+      matInput
       [(ngModel)]="form.fullDescription"
       name="fullDescription"
       rows="6"
     ></textarea>
-  </label>
-
+  </mat-form-field>
   <div class="actions">
-    <button type="submit">Сохранить</button>
-    <button type="button" (click)="onCancel()">Отмена</button>
+    <button mat-button color="primary" type="button" (click)="onCancel()">
+      Отмена
+    </button>
+    <button mat-raised-button color="primary" type="submit">Сохранить</button>
   </div>
 </form>

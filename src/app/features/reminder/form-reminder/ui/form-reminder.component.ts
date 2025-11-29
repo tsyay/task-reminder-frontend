@@ -9,12 +9,24 @@ import {
 import { FormsModule } from '@angular/forms';
 import { Status } from '../../../../entities/status/model/status.model';
 import { ReminderFormValue } from '../../../../entities/reminder/model/reminder-form.model';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-reminder-form',
   templateUrl: './form-reminder.component.html',
+  styleUrl: 'form-reminder.component.less',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule
+  ],
 })
 export class ReminderFormComponent {
   @Input() initialValue?: ReminderFormValue;

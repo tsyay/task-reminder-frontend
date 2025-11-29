@@ -1,0 +1,29 @@
+.reminder-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.form-row > mat-form-field {
+  flex: 1 1 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* Скругление всех полей */
+::ng-deep .mat-mdc-text-field-wrapper {
+  border-radius: 12px !important;
+}
