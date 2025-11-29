@@ -85,7 +85,7 @@ export class ReminderUpdatePageComponent implements OnInit {
       next: (updated) => {
         this.isSaving = false;
         console.log(updated.id);
-        this.router.navigate(['/reminders', updated.id]);
+        this.router.navigate(['/reminders']);
       },
       error: (err) => {
         this.isSaving = false;
@@ -96,6 +96,6 @@ export class ReminderUpdatePageComponent implements OnInit {
   }
 
   onCancel(): void {
-    this.router.navigate(['/reminders', this.reminderId]);
+    this.router.navigate(['/reminders']);
   }
 }

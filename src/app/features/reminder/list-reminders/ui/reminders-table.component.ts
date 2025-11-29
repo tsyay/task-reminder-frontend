@@ -3,12 +3,14 @@ import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Reminder } from '../../../../entities/reminder/model/reminder.model';
 import { ReminderApi } from '../../../../entities/reminder/api/reminder.api';
+import { MatTableModule } from '@angular/material/table';
 
-@Component({
+@Component({ 
   standalone: true,
   selector: 'app-reminders-table',
   templateUrl: './reminders-table.component.html',
-  imports: [CommonModule, RouterModule],
+  styleUrl: './reminders-table.component.less',
+  imports: [CommonModule, RouterModule, MatTableModule],
 })
 export class RemindersTableComponent implements OnInit {
   reminders: Reminder[] = [];
@@ -43,4 +45,6 @@ export class RemindersTableComponent implements OnInit {
   onRowDblClick(reminder: Reminder): void {
     this.router.navigate(['/reminders', reminder.id]);
   }
+
+  displayedColumns: string[] = ['status', 'shortDescription', 'createdAt', 'dueAt'];
 }

@@ -56,7 +56,7 @@ export class ReminderCreatePageComponent implements OnInit {
       next: (created) => {
         this.isSaving = false;
         console.log(created.id)
-        this.router.navigate(['/reminders', created.id]);
+        this.router.navigate(['/reminders']);
       },
       error: (err) => {
         this.isSaving = false;

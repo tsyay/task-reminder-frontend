@@ -1,3 +1,15 @@
-<h1>Напоминания</h1>
+<div class="page">
+  <div class="header">
+    <button
+      mat-raised-button
+      color="primary"
+      routerLink="/reminders/new"
+    >
+      Создать напоминание
+    </button>
+  </div>
 
-<app-reminders-table></app-reminders-table>
+  <div class="table-wrapper mat-elevation-z4">
+    <app-reminders-table></app-reminders-table>
+  </div>
+</div>
