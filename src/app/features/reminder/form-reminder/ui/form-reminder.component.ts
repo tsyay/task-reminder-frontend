@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Status } from '../../../../entities/status/model/status.model';
 import { ReminderFormValue } from '../../../../entities/reminder/model/reminder-form.model';
@@ -23,13 +29,13 @@ export class ReminderFormComponent {
     statusId: 0,
   };
 
-  ngOnChanges() {
-    if (this.initialValue) {
-      this.form = {...this.initialValue}
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['initialValue'] && this.initialValue) {
+      this.form = { ...this.initialValue };
     }
   }
   onSubmit() {
-    this.submitted.emit(this.form)
+    this.submitted.emit(this.form);
   }
 
   onCancel() {

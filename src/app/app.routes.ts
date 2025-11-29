@@ -3,6 +3,7 @@ import { RemindersPageComponent } from './pages/reminders-page/ui/reminders-page
 import { ReminderViewerComponent } from './features/reminder/view-reminder/ui/reminder-viewer.component';
 import { NotFoundPageComponent } from './pages/not-found-page/ui/not-found-page.component';
 import { ReminderCreatePageComponent } from './pages/reminder-create-page/reminder-create-page.component';
+import { ReminderUpdatePageComponent } from './pages/reminder-update-page/reminder-update-page.component';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,10 @@ export const routes: Routes = [
   {
     path: 'reminders/:id',
     component: ReminderViewerComponent,
+  },
+  {
+    path: 'reminders/:id/edit',
+    component: ReminderUpdatePageComponent,
   },
   {
     path: '',
