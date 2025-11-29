@@ -52,6 +52,7 @@ src/
       reminder-view/
       reminder-create/
       reminder-update/
+      not-found-page/
     shared/
     core/
 ```
